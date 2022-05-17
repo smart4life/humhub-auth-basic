@@ -1,0 +1,19 @@
+{
+    "id": "auth-basic",
+    "name": "Basic Authorization",
+    "description": "Integrating Basic Authorization",
+    "keywords": [
+        "authorization",
+        "basic"
+    ],
+    "version": "0.1.0",
+    "humhub": {
+        "minVersion": "1.6"
+    },
+    "homepage": "https://github.com/smart4life/humhub-auth-basic",
+    "authors": [
+        {
+            "name": "Sebastian Stumpf"
+        }
+    ]
+}
