@@ -2,6 +2,7 @@
 
 namespace humhub\auth\basic;
 
+use humhub\components\Request;
 use humhub\modules\user\models\forms\Login;
 use humhub\modules\user\authclient\AuthClientHelpers;
 use yii;
@@ -13,6 +14,10 @@ class Events
      */
     public static function onBeforeRequest($event)
     {
+        if (!Yii::$app->request instanceof Request) {
+            return;
+        }
+
         $request = Yii::$app->request;
         list($username, $password) = $request->getAuthCredentials();
         $identity = yii::$app->user->getIdentity();

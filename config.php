@@ -1,6 +1,5 @@
 <?php
 
-use humhub\auth\basic\Events;
 use yii\base\Application;
 
 return [
