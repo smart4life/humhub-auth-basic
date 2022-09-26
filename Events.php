@@ -22,10 +22,7 @@ class Events
         list($username, $password) = $request->getAuthCredentials();
         $identity = yii::$app->user->getIdentity();
 
-        if ($username != null && $password != null && ($identity == null || $identity->username != $username)) {
-            if ($identity != null) {
-                Yii::$app->user->logout();
-            }
+        if ($username != null && $password != null && $identity == null) {
             $login = new Login;
             if ($login->load(['username' => $username, 'password' => $password], '') && $login->validate()) {
                 $user = AuthClientHelpers::getUserByAuthClient($login->authClient);
