@@ -26,7 +26,7 @@ class Events
         if ($username != null && $password != null && $identity == null) {
             $login = new Login;
             if ($login->load(['username' => $username, 'password' => $password], '') && $login->validate()) {
-                if (class_exists("AuthClientService")) {
+                if (version_compare(Yii::$app->version, '1.14', '>=')) {
                     $authClientService = new AuthClientService($login->authClient);
                     $user = $authClientService->getUser();
                     if ($user == null) {
